@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <title>Palace Chores</title>
+
+  <script type="text/javascript">
+    startWeekTimestamp = 1378684800;
+    secondsInWeek = 604800;
+    currentTimestamp = Math.round( +new Date / 1000 );
+
+    var week = Math.floor((currentTimestamp - startWeekTimestamp) / secondsInWeek);
+
+    $(document).ready(function(){
+            var users = ["AS", "EC", "NK", "SL"];
+            var chores = ["Kitchen", "Floors", "Trash", "Bathroom"];
+
+            for(i = 0; i < users.length; i++) {
+                var person = '<div class="assignment"><h2 class="text-center">' + users[(i + week) % users.length] + '</h2><h3>' + chores[i] + '</h3></div>';
+
+                $('#listing').append(person);
+            }
+    });
+  </script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Palace Chores</h1>
+        <div class="text-center" id="listing"></div>
+    </div>
+</body>
+</html>

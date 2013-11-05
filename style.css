@@ -1,0 +1,14 @@
+h1 {
+    margin:50px auto 25px auto;
+}
+div.assignment {
+    display:inline-block;
+    width:200px;
+    border:2px solid #fff;
+}
+div.assignment:nth-of-type(odd) {
+    background: #e0e0e0;
+}
+div.assignment:nth-of-type(even) {
+    background: #f2f2f2;
+}
