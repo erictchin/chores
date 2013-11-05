@@ -8,18 +8,18 @@
   <title>Palace Chores</title>
 
   <script type="text/javascript">
-    startWeekTimestamp = 1378684800;
-    secondsInWeek = 604800;
-    currentTimestamp = Math.round( +new Date / 1000 );
+    var start = 1378684800;                   /* The starting week */ 
+    var week = 604800;                        /* Seconds per week  */
+    var now = Math.round( +new Date / 1000 ); /* Current week      */
 
-    var week = Math.floor((currentTimestamp - startWeekTimestamp) / secondsInWeek);
+    var thisweek = Math.floor((now - start) / week);
 
     $(document).ready(function(){
             var users = ["AS", "EC", "NK", "SL"];
             var chores = ["Kitchen", "Floors", "Trash", "Bathroom"];
 
             for(i = 0; i < users.length; i++) {
-                var person = '<div class="assignment"><h2 class="text-center">' + users[(i + week) % users.length] + '</h2><h3>' + chores[i] + '</h3></div>';
+                var person = '<div class="assignment"><h2 class="text-center">' + users[i] + '</h2><h3>' + chores[(i + thisweek) % users.length] + '</h3></div>';
 
                 $('#listing').append(person);
             }
